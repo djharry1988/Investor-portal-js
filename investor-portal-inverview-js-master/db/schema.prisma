@@ -8,6 +8,7 @@ datasource db {
 
 generator client {
   provider = "prisma-client-js"
+  experimentalFeatures = ["connectOrCreate"]
 }
 
 // --------------------------------------
@@ -67,4 +68,13 @@ model Relationship {
   primaryAccountId   Int      
   secondaryAccount   Account  @relation(name: "SecondaryAccountOnRelationship", fields: [secondaryAccountId], references: [id])
   secondaryAccountId Int      
+}
+
+model Application {
+  id        Int      @default(autoincrement()) @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String   
+  account   Account?  @relation(fields: [accountId], references: [id])
+  accountId Int?
 }

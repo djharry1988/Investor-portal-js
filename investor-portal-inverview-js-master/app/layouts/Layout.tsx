@@ -57,6 +57,10 @@ const Header = (props) => (
           <a className="inline-block hover:text-gray-dark mr-4">Accounts</a>
         </Link>
 
+        <Link href="/applications">
+          <a className="inline-block hover:text-gray-dark mr-4">Applications</a>
+        </Link>
+
         <Suspense fallback={<></>}>
           <LoginButtons />
         </Suspense>
